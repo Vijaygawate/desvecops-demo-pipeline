@@ -47,6 +47,15 @@ jobs:
         with:
            name: Dependency check report
            path: ${{github.workspace}}/reports
+      - name: Publish report
+        id: import-scan
+        uses: ivanamat/defectdojo-import-scan@v1
+        with:
+          token: c651bb5dc6209fb0cf8c9527dae5cbe784129ec0
+          defectdojo_url: 'http://54.237.21.229:8080/'
+          file: ${{github.workspace}}/reports/dependency-check-report.html
+          scan_type: Trivy Scan
+          engagement: 1
 
   test-stage:
     runs-on: ubuntu-latest
