@@ -92,8 +92,8 @@ jobs:
           context: ./
           # Note: tags has to be all lower-case
           tags: |
-            vijaygawate/bluegreen:${{ github.sha }} 
-            ghcr.io/vijaygawate/bluegreen:${{ github.sha }}
+            vijaygawate/bluegreen 
+            ghcr.io/vijaygawate/bluegreen
           # build on feature branches, push only on main branch
           push: ${{ github.ref == 'refs/heads/main' }}
 
