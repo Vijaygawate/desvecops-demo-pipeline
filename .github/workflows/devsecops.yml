@@ -113,8 +113,8 @@ jobs:
           ignore-unfixed: true
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
-      - name: Upload Test results
-        uses: actions/upload-artifact@master
+      - name: Upload results to GitHub
+        uses: actions/upload-artifact@v3
         with:
-           name: Trvy scan report
-           path: ${{github.workspace}}/reports
+          name: trivy-results
+          path: trivy-results.json
