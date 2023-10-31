@@ -122,8 +122,8 @@ jobs:
         id: import-scan
         uses: ivanamat/defectdojo-import-scan@v1
         with:
-          token: ${{ secrets.DEFECTOJO_TOKEN }}
-          defectdojo_url: ${{ secrets.DEFECTOJO_URL }}
+          token: c651bb5dc6209fb0cf8c9527dae5cbe784129ec0
+          defectdojo_url: 'http://54.237.21.229:8080/'
           file: trivy-results.json
           scan_type: Trivy Scan
           engagement: 1
