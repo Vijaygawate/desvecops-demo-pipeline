@@ -121,7 +121,7 @@ jobs:
   
   zap_scan:
     runs-on: ubuntu-latest
-    needs: security
+    needs: ['build', 'depchecktest', 'build-and-push-docker-image', 'test-stage', Docker-image-scan]
     name: Run DAST scan on the web application
     steps:
       - name: Checkout
