@@ -130,7 +130,7 @@ jobs:
           version: ''
           target_start: ${{ github.event.inputs.target_start }}
           target_end: ${{ github.event.inputs.target_end }}
-          #product: 1
+          product: security
       - name: Show response
         run: |
           set -e
