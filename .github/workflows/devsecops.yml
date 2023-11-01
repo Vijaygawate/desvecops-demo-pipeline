@@ -123,10 +123,14 @@ jobs:
         uses: ivanamat/defectdojo-import-scan@v1
         with:
           token: c651bb5dc6209fb0cf8c9527dae5cbe784129ec0
-          defectdojo_url: 'http://54.237.21.229:8080/'
+          defectdojo_url: 'http://52.87.233.101:8080/'
           file: trivy-results.json
           scan_type: Trivy Scan
           engagement: 1
+      - name: Show response
+        run: |
+         set -e
+         printf '%s\n' '${{ steps.import-scan.outputs.response }}'
 
    
   
