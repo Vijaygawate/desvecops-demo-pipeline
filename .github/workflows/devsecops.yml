@@ -118,6 +118,23 @@ jobs:
         with:
           name: trivy-results
           path: trivy-results.json
+      - name: Create new engagement
+        id: engagements
+        uses: ivanamat/defectdojo-engagements@v1
+        with:
+          token: c651bb5dc6209fb0cf8c9527dae5cbe784129ec0
+          defectdojo_url: 'http://52.87.233.101:8080/'
+          defectdojo_endpoint: '/api/v2/engagements/'
+          name: Vijay
+          description: trvy scan 
+          version: ''
+          target_start: ${{ github.event.inputs.target_start }}
+          target_end: ${{ github.event.inputs.target_end }}
+          product: 1
+      - name: Show response
+        run: |
+          set -e
+          printf '%s\n' '${{ steps.engagements.outputs.response }}'
       - name: Publish report
         id: import-scan
         uses: ivanamat/defectdojo-import-scan@v1
