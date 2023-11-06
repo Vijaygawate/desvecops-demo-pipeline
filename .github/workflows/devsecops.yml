@@ -127,7 +127,7 @@ jobs:
           defectdojo_url: http://100.25.10.229:8080/
           file: trivy-results.json
           scan_type: Trivy Scan
-          engagement: vijaydemo
+          engagement: 1
       - name: Show response
         run: |
           set -e
