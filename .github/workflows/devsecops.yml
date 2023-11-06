@@ -119,19 +119,19 @@ jobs:
           name: trivy-results
           path: trivy-results.json
        
-      - name: import scan results into defectdojo
-        id: import-scan-results-into-defectdojo
-        uses: portswigger-cloud/defectdojo-github-action@v1
+      - name: Publish report
+        id: import-scan
+        uses: ivanamat/defectdojo-import-scan@v1
         with:
-          defectdojo-url: http://3.83.245.113:8080/
-          defectdojo-username: admin
-          defectdojo-password: e8OGyH455zbDDqlTHJjUyf
-          defectdojo-product-type: example-product-type
-          defectdojo-product: example-product
-          defectdojo-environment-type: Production
-          defectdojo-scan-type: trvy JSON Report
-          defectdojo-engagement-name: Github Actions Initiated SAST Scan
-          scan-results-file-name: trivy-results.json
+          token: c651bb5dc6209fb0cf8c9527dae5cbe784129ec0
+          defectdojo_url: http://100.25.10.229:8080/
+          file: trivy-results.json
+          scan_type: Trivy Scan
+          engagement: vijaydemo
+      - name: Show response
+        run: |
+          set -e
+          printf '%s\n' '${{ steps.import-scan.outputs.response }}'
 
    
   
