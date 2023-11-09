@@ -142,30 +142,30 @@ jobs:
           set -e
           printf '%s\n' '${{ steps.import-scan.outputs.response }}'
 
-  Push-Docker-Image-To-DockerHub:
-    runs-on: ubuntu-latest
-    needs: ['build', 'build-docker-image', 'test-stage', 'depchecktest', 'Docker-image-scan']
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+  # Push-Docker-Image-To-DockerHub:
+  #   runs-on: ubuntu-latest
+  #   needs: ['build', 'build-docker-image', 'test-stage', 'depchecktest', 'Docker-image-scan']
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v3
      
-      - name: Docker push
-        run: docker push vijaygawate/bluegreen
+  #     - name: Docker push
+  #       run: docker push vijaygawate/bluegreen
    
   
-  # zap_scan:
-  #   runs-on: ubuntu-latest
-  #   name: Scan the webapplication
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
-  #       with:
-  #         ref: main
-  #     - name: ZAP Scan
-  #       uses: zaproxy/action-full-scan@v0.7.0
-  #       with:
-  #         token: ${{ secrets.G_TOKEN }}
-  #         docker_name: 'ghcr.io/zaproxy/zaproxy:stable'
-  #         target: 'http://52.91.150.100:8080/'
-  #         rules_file_name: '.zap/rules.tsv'
-  #         cmd_options: '-a'
+  zap_scan:
+    runs-on: ubuntu-latest
+    name: Scan the webapplication
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: main
+      - name: ZAP Scan
+        uses: zaproxy/action-full-scan@v0.7.0
+        with:
+          token: ${{ secrets.G_TOKEN }}
+          docker_name: 'ghcr.io/zaproxy/zaproxy:stable'
+          target: 'http://54.210.173.4:8080/'
+          rules_file_name: '.zap/rules.tsv'
+          cmd_options: '-a'
