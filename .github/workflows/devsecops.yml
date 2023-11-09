@@ -146,12 +146,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: ['build', 'build-docker-image', 'test-stage', 'depchecktest', 'Docker-image-scan']
     steps:
-      - name: Build and load
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          load: true
-          tags: vijaygawate/bluegreen
+      - name: Checkout code
+        uses: actions/checkout@v3
+     
+      - name: Docker push
+        run: docker push vijaygawate/bluegreen
    
   
   # zap_scan:
