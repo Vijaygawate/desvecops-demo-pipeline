@@ -37,7 +37,7 @@ jobs:
         with:
           project: 'test'
           path: '.'
-          format: 'json'
+          format: 'JSON'
           out: 'reports' # this is the default, no need to specify unless you wish to override it
           args: >
             #--failOnCVSS 9
