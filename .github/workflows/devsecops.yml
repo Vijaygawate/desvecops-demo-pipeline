@@ -56,7 +56,7 @@ jobs:
           defectdojo_url: http://54.210.173.4:8080/
           file: dependency-check-report.xml
           scan_type: Dependency Check Scan
-          engagement: 1
+          engagement: 2
       - name: Show response
         run: |
           set -e
