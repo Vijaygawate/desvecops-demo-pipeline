@@ -46,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: dependency-check-report
-          path: dependency-check-report.xml
+          path: /home/runner/work/desvecops-demo-pipeline/desvecops-demo-pipeline/dependency-check-report.xml
 
       - name: Publish report
         id: import-scan
