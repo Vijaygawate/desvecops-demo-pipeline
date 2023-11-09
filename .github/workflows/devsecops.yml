@@ -37,7 +37,7 @@ jobs:
         with:
           project: 'test'
           path: '.'
-          format: 'HTML'
+          format: 'json'
           out: 'reports' # this is the default, no need to specify unless you wish to override it
           args: >
             #--failOnCVSS 9
@@ -54,7 +54,7 @@ jobs:
         with:
           token: c651bb5dc6209fb0cf8c9527dae5cbe784129ec0
           defectdojo_url: http://54.210.173.4:8080/
-          file: dependency-check-report.html
+          file: dependency-check-report.json
           scan_type: Dependency report
           engagement: 1
       - name: Show response
