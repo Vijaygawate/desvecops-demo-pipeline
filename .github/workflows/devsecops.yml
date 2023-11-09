@@ -55,7 +55,7 @@ jobs:
           token: c651bb5dc6209fb0cf8c9527dae5cbe784129ec0
           defectdojo_url: http://54.210.173.4:8080/
           file: dependency-check-report.xml
-          scan_type: Dependency report
+          scan_type: Dependency Check Scan
           engagement: 1
       - name: Show response
         run: |
