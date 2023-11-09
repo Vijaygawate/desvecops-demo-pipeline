@@ -42,11 +42,11 @@ jobs:
           args: >
             #--failOnCVSS 9
             --enableRetired
-      - name: Upload results to GitHub
-        uses: actions/upload-artifact@v3
+      - name: Upload Test results
+        uses: actions/upload-artifact@master
         with:
-          name: dependency-check-report
-          path: /home/runner/work/desvecops-demo-pipeline/desvecops-demo-pipeline/dependency-check-report.xml
+           name: Dependency check report
+           path: ${{github.workspace}}/reports
 
       - name: Publish report
         id: import-scan
